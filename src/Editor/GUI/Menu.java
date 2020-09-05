@@ -1,32 +1,35 @@
 package Editor.GUI;
 
+import Editor.Action.ActionFactory;
+
 import javax.swing.*;
 
 public class Menu extends JMenuBar {
-    public Menu() {
+    public Menu(ActionFactory factory) {
         var menuFile = new JMenu("File") {{
-            add(new JMenuItem("New"));
-            add(new JMenuItem("Open"));
-            add(new JMenuItem("Save"));
+            add(new JMenuItem(factory.getNewFileActionForMenu()));
+            add(new JMenuItem(factory.getOpenFileActionForMenu()));
+            add(new JMenuItem(factory.getSaveFileActionForMenu()));
             addSeparator();
             add(new JMenuItem("Exit"))
                     .addActionListener(event -> System.exit(0));
         }};
 
         var menuEdit = new JMenu("Edit") {{
-            add(new JMenuItem("Undo"));
+            add(new JMenuItem(factory.getUndoLastActionForMenu()));
             addSeparator();
-            add(new JMenuItem("Cut"));
-            add(new JMenuItem("Copy"));
-            add(new JMenuItem("Paste"));
-            add(new JMenuItem("Delete"));
+            add(new JMenuItem(factory.getCutTextActionForMenu()));
+            add(new JMenuItem(factory.getCopyTextActionForMenu()));
+            add(new JMenuItem(factory.getPasteTextActionForMenu()));
+            add(new JMenuItem(factory.getDeleteTextActionForMenu()));
             addSeparator();
-            add(new JMenuItem("Start search"));
-            add(new JMenuItem("Previous search"));
-            add(new JMenuItem("Next match"));
-            add(new JMenuItem("Replace"));
+            add(new JMenuItem(factory.getSearchTextActionForMenu()));
+            add(new JMenuItem(factory.getNextTextActionForMenu()));
+            add(new JMenuItem(factory.getPreviousTextActionForMenu()));
+            add(new JMenuItem(factory.getPasteTextActionForMenu()));
+            add(new JMenuItem(factory.getReplaceTextActionForMenu()));
             addSeparator();
-            add(new JMenuItem("Select All"));
+            add(new JMenuItem(factory.getSelectAllTextActionForMenu()));
         }};
 
         var menuFormat = new JMenu("Format") {{
