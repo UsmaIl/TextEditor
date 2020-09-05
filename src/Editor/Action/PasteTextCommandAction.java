@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 
 public class PasteTextCommandAction extends AbstractTextEditorAction {
 
-    public PasteTextCommandAction(TextEditor editor, String name, int keyCode) {
+    public PasteTextCommandAction(String name, TextEditor editor, int keyCode) {
         super(editor);
         putValue(Action.NAME, name);
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(keyCode, KeyEvent.ALT_DOWN_MASK));

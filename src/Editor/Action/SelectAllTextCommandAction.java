@@ -1,15 +1,14 @@
 package Editor.Action;
 
-import Editor.Commands.CutCommand;
 import Editor.GUI.TextEditor;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-public class CutTextCommandAction extends AbstractTextEditorAction {
+public class SelectAllTextCommandAction extends AbstractTextEditorAction {
 
-    public CutTextCommandAction(String name, TextEditor editor, int keyCode) {
+    public SelectAllTextCommandAction(String name, TextEditor editor, int keyCode) {
         super(editor);
         putValue(Action.NAME, name);
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(keyCode, KeyEvent.ALT_DOWN_MASK));
@@ -17,6 +16,6 @@ public class CutTextCommandAction extends AbstractTextEditorAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        editor.executeCommand(new CutCommand(editor));
+        editor.getTextArea().selectCurrentText(0,  editor.getTextArea().getText().length());
     }
 }

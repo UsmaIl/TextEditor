@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 
 public class UndoTextCommandAction extends AbstractTextEditorAction {
 
-    public UndoTextCommandAction(TextEditor editor, String name, int keyCode) {
+    public UndoTextCommandAction(String name, TextEditor editor, int keyCode) {
         super(editor);
         putValue(Action.NAME, name);
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(keyCode, KeyEvent.ALT_DOWN_MASK));
@@ -20,3 +20,4 @@ public class UndoTextCommandAction extends AbstractTextEditorAction {
         editor.executeCommand(new UndoCommand(editor));
     }
 }
+

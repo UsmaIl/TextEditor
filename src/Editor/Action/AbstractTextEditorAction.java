@@ -7,8 +7,9 @@ import javax.swing.*;
 abstract class AbstractTextEditorAction extends AbstractAction {
     protected final TextEditor editor;
 
-    protected AbstractTextEditorAction(String name, TextEditor editor) {
-        super(name);
+    protected AbstractTextEditorAction(TextEditor editor) {
         this.editor = editor;
     }
+
+
 }

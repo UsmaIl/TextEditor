@@ -5,16 +5,16 @@ import TextSearch.SearchResult;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 
 public class PreviousMatchAction extends AbstractTextEditorAction {
 
     protected PreviousMatchAction(TextEditor editor, Icon icon) {
         super(editor);
         putValue(Action.SMALL_ICON, icon);
+        putValue(Action.SHORT_DESCRIPTION, "Previous match");
     }
 
-    protected PreviousMatchAction(TextEditor editor, String name, int keyCode) {
+    protected PreviousMatchAction(String name, TextEditor editor, int keyCode) {
         super(editor);
         putValue(Action.NAME, name);
         putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(keyCode, 0));
@@ -27,7 +27,7 @@ public class PreviousMatchAction extends AbstractTextEditorAction {
         if (searchResult.hasResult()) {
             int result = searchResult.getPrev().getIndex();
             int length = searchResult.getElement().getLength();
-            editor.getTextArea().selectText(result,  length);
+            editor.getTextArea().selectCurrentText(result,  length);
         }
     }
 }

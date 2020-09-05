@@ -9,15 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
 
 public class DeleteTextCommandAction extends AbstractTextEditorAction {
-    public DeleteTextCommandAction(TextEditor editor, String name, int keyCode) {
+    public DeleteTextCommandAction(String name, TextEditor editor, int keyCode) {
         super(editor);
         putValue(Action.NAME, name);
-        putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(keyCode, InputEvent.SHIFT_DOWN_MASK));
+        putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(keyCode, InputEvent.ALT_DOWN_MASK));
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Command deleteCommand = new DeleteCommand(editor);
-        editor.executeCommand(deleteCommand);
+        editor.executeCommand(new DeleteCommand(editor));
     }
 }
