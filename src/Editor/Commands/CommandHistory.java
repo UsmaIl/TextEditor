@@ -1,9 +1,10 @@
 package Editor.Commands;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class CommandHistory {
-    private final Stack<Command> history = new Stack<>();
+    private final Deque<Command> history = new ArrayDeque<>();
 
     public void push(Command c) {
         history.push(c);

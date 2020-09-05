@@ -15,7 +15,7 @@ public class CutCommand extends Command {
 
         backup();
         String source = editor.getTextArea().getText();
-        editor.clipboard = editor.getTextArea().getSelectedText();
+        editor.setClipboard(editor.getTextArea().getSelectedText());
         editor.getTextArea().setText(cutString(source));
         return true;
     }

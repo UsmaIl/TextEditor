@@ -10,10 +10,10 @@ public class PasteCommand extends Command {
 
     @Override
     public boolean execute() {
-        if (editor.clipboard == null || editor.clipboard.isEmpty()) return false;
+        if (editor.getClipboard() == null || editor.getClipboard().isEmpty()) return false;
 
         backup();
-        editor.getTextArea().insert(editor.clipboard, editor.getTextArea().getCaretPosition());
+        editor.getTextArea().insert(editor.getClipboard(), editor.getTextArea().getCaretPosition());
         return true;
     }
 
