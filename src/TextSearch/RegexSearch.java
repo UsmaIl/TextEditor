@@ -13,10 +13,10 @@ public class RegexSearch extends Search {
     public void search() {
         Pattern regExPattern = Pattern.compile(this.pattern);
         Matcher matcher = regExPattern.matcher(this.text);
+        int length = matcher.end() - matcher.start();
         this.matches.clear();
         while (matcher.find()) {
-            this.matches.add(new SearchItem(matcher.start(),
-                    matcher.end()-matcher.start()));
+            this.matches.add(new SearchItem(matcher.start(), length));
         }
     }
 }

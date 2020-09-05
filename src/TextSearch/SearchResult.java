@@ -10,17 +10,21 @@ public class SearchResult {
 
     public SearchItem getNext() {
         currentIndex++;
+
         if (currentIndex == foundAllIndex.size()) {
             currentIndex = 0;
         }
+
         return foundAllIndex.get(currentIndex);
     }
 
     public SearchItem getPrev() {
         currentIndex--;
+
         if (currentIndex < 0) {
             currentIndex = foundAllIndex.size() - 1;
         }
+
         return foundAllIndex.get(currentIndex);
     }
 
@@ -43,5 +47,13 @@ public class SearchResult {
         }
 
         searchObject.search();
+    }
+
+    public void resetIndex() {
+        currentIndex = -1;
+    }
+
+    public int getCountFoundAllIndex() {
+        return foundAllIndex.size();
     }
 }

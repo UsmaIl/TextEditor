@@ -16,4 +16,6 @@ public class SearchItem {
     public int getLength() {
         return this.length;
     }
+
 }
+
